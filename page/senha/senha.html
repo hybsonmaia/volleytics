@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - Volleytics</title>
+    <link rel="stylesheet" href="senha.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../img/logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Redefinir Senha</h2>
+        <p>Digite seu e-mail abaixo para receber instruções de redefinição de senha.</p>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
+        </div>
+        <button onclick="resetarSenha()">Enviar</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>E-mail enviado com sucesso! Verifique sua caixa de entrada para redefinir sua senha.</p>
+            <button onclick="fecharPopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="senha.js"></script>
+</body>
+</html>

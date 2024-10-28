@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolher Nova Senha - Volleytics</title>
+    <link rel="stylesheet" href="novaSenha.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../img/logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Escolher Nova Senha</h2>
+        <p>Digite sua nova senha e confirme-a abaixo.</p>
+        <div class="form-group">
+            <label for="novaSenha">Nova Senha:</label>
+            <input type="password" id="novaSenha" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmarSenha">Confirmar Senha:</label>
+            <input type="password" id="confirmarSenha" required>
+        </div>
+        <button onclick="definirNovaSenha()">Alterar</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Senha redefinida com sucesso!</p>
+            <button onclick="fecharPopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="novaSenha.js"></script>
+</body>
+</html>
