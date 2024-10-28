@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleytics</title>
+    <link rel="stylesheet" href="./style/atletas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <div class="list-container">
+        <a href="index.html" class="back-link">&lt;</a>
+        <div class="header-container">
+            <h2>Atletas Cadastrados</h2>
+            <input type="checkbox" id="toggleSelectAll" onclick="toggleSelectAll()" title="Selecionar/Desmarcar todos">
+            <label for="toggleSelectAll" style="margin-left: 8px;">Selecionar todos</label>
+        </div>
+        <ul id="atletas-list"></ul>
+        <button onclick="sort()" class="btn-sort">Sortear</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Selecione pelo menos 4 atletas para sortear os times.</p>
+            <button class="btn-sort" onclick="fecharPopup()">Fechar</button>
+        </div>
+    </div>
+
+    <div id="popupConfirm" class="popup">
+        <div class="popup-content">
+            <p>Tem certeza que deseja deletar esse atleta?</p>
+            <div class="btn-content">
+                <button class="btn-confirm" onclick="confirmPopup()">Sim</button>
+                <button class="btn-cancel" onclick="cancelPopup()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupOk" class="popup">
+        <div class="popup-content">
+            <p>Atleta deletado com sucesso!</p>
+            <button class="btn-sort" onclick="fecharPopupOk()">Ok</button>
+        </div>
+    </div>
+
+    <div id="popupTimes" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p>Escolha quantos atletas por time:</p>
+            <div class="radio-options">
+                <label><input type="radio" name="numAtletasPorTime" value="2" id="radio-2"> 2 atletas</label><br>
+                <label><input type="radio" name="numAtletasPorTime" value="3" id="radio-3"> 3 atletas</label><br>
+                <label><input type="radio" name="numAtletasPorTime" value="4" id="radio-4"> 4 atletas</label><br>
+            </div>
+            <div class="button-group">
+                <button class="btn-confirm" onclick="confirmNumAtletasPorTime()">Confirmar</button>
+                <button class="btn-cancel" onclick="fecharPopupTimes()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="atletas.js"></script>
+</body>
+
+</html>

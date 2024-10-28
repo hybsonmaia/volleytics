@@ -1,0 +1,164 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/img/bg.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.verAtletas {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 130px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.verAtletas:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-align: left;
+    width: 100%;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus, input:focus {
+    border-color: transparent;
+    outline: none !important;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1),
+                0 0 0 2px #0072ff;
+}
+
+button {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    background: linear-gradient(90deg, #0072ff, #f9e700);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #005bb5, #d1c200);
+}
+
+.erro {
+    border: 2px solid red;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 80%;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.popup-content button:hover {
+    background-color: #45a049;
+}
+
+.star {
+    color: #FFD700;
+    font-size: 1.2em;
+    margin-right: 2px;
+
+}
+
+/* Responsividade para telas menores que 300px */
+@media (max-width: 300px) {
+    .verAtletas {
+        position: relative;
+        margin: 0 auto 20px; /* Centraliza o botão */
+        display: block;
+        top: 0;
+        right: 0;
+    }
+}

@@ -1,0 +1,104 @@
+/* Estilos gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/img/bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.teams-container {
+    display: grid;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.back-link {
+    justify-self: start;
+    top: 10px;
+    left: 30px;
+    font-size: 34px;
+    color: #0072ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.1s;
+}
+
+.back-link:hover {
+    color: #f9e700;
+}
+
+h2 {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+#teams-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team {
+    flex: 50% 50%;
+    min-width: 250px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.team h3 {
+    color: #333;
+}
+
+.team ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.team li {
+    font-size: 1em;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+}
+
+.team li .athlete-name {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.team li:hover .athlete-name {
+    transform: scale(1.1);
+}
+
+.star {
+    color: #FFD700;
+    font-size: 1.2em;
+}
+
