@@ -99,7 +99,7 @@ function confirmNumAtletasPorTime() {
             
             const times = criarTimesBalanceados(atletasSelecionados);
             localStorage.setItem("equipesGeradas", JSON.stringify(times));
-            window.location.href = "equipes.html";
+            window.location.href = "../equipes/equipes.html";
         })
         .catch(error => console.error("Erro ao sortear atletas:", error));
 }
