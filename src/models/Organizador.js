@@ -11,12 +11,15 @@ const organziadorSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
+  },
+  usuario: {
+    type: String,
+    unique: true,
   },
   senha: {
     type: String,
   }
-
-  //NOME, EMAIL, SENHA
 
 });
 
