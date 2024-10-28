@@ -127,3 +127,19 @@ button:hover {
 .popup-content button:hover {
     background-color: #45a049;
 }
+
+
+.back-link {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 34px;
+    color: #0072ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.1s;
+}
+
+.back-link:hover {
+    color: #f9e700;
+}
