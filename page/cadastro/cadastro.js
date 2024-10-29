@@ -1,61 +1,51 @@
-function fazerCadastro() {
+async function fazerCadastro() {
   const nome = document.getElementById("nome");
   const email = document.getElementById("email");
   const usuario = document.getElementById("usuario");
   const senha = document.getElementById("senha");
 
-  // Remove a classe de erro antes de validar novamente
   nome.classList.remove("erro");
   email.classList.remove("erro");
   usuario.classList.remove("erro");
   senha.classList.remove("erro");
 
-  if (!nome.value) {
-    nome.classList.add("erro");
-    if (!email.value) {
-      email.classList.add("erro");
-    }
-    if (!usuario.value) {
-      usuario.classList.add("erro");
-    }
-    if (!senha.value) {
-      senha.classList.add("erro");
-    }
+  if (!nome.value) nome.classList.add("erro");
+  if (!email.value) email.classList.add("erro");
+  if (!usuario.value) usuario.classList.add("erro");
+  if (!senha.value) senha.classList.add("erro");
 
-    if (nome.value && email.value && usuario.value && senha.value) {
-      const dadosCadastro = {
-        nome: nome,
-        email: email,
-        usuario: usuario,
-        senha: senha,
-      };
+  if (nome.value && email.value && usuario.value && senha.value) {
+    const dadosCadastro = {
+      nome: nome.value,
+      email: email.value,
+      usuario: usuario.value,
+      senha: senha.value,
+    };
 
-      // Envio dos dados de cadastro para o servidor (exemplo)
-      fetch("http://localhost:3000/usuarios", {
+    try {
+      const response = await fetch("http://localhost:3000/organizadores", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dadosCadastro),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data && data.id) {
-            exibirPopup();
-            limparFormulario();
-          } else {
-            alert("Erro ao realizar cadastro. Tente novamente.");
-          }
-        })
-        .catch((error) => {
-          console.error("Erro:", error);
-          alert("Erro ao conectar com o servidor.");
-        });
-    } else {
-        exibirPopup();
+      });
+
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        limparFormulario();
+      } else {
+        alert("Erro ao cadastrar organizador. Verifique os dados.");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar organizador:", error);
+      alert("Erro ao cadastrar organizador. Tente novamente.");
     }
+  } else {
+    exibirPopup();
   }
 }
+
 
 function exibirPopup() {
   const popup = document.getElementById("popup");
@@ -72,4 +62,19 @@ function limparFormulario() {
   document.getElementById("email").value = "";
   document.getElementById("usuario").value = "";
   document.getElementById("senha").value = "";
+}
+
+function togglePassword() {
+  const passwordInput = document.getElementById("senha");
+  const eyeIcon = document.getElementById("eye-icon");
+
+  eyeIcon.style.transition = "opacity 0.5s ease"; 
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeIcon.innerHTML = `<path d="M12 4.5C7.05 4.5 2.73 7.61 1 12c1.73 4.39 6.05 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 16.95 4.5 12 4.5zm0 13c-2.9 0-5.5-2.1-6.48-5 0.98-2.9 3.58-5 6.48-5s5.5 2.1 6.48 5c-0.98 2.9-3.58 5-6.48 5zm0-7.5c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5z"/>`;
+  } else {
+    passwordInput.type = "password";
+    eyeIcon.innerHTML = `<path d="M12 4.5C7.05 4.5 2.73 7.61 1 12c1.73 4.39 6.05 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 16.95 4.5 12 4.5zm0 13c-2.9 0-5.5-2.1-6.48-5 0.98-2.9 3.58-5 6.48-5s5.5 2.1 6.48 5c-0.98 2.9-3.58 5-6.48 5zM2 2l20 20"/>`;
+  }
 }

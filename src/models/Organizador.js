@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const organziadorSchema = new mongoose.Schema({
-
+const organizadorSchema = new mongoose.Schema({
   organizadorId: {
     type: Number,
     unique: true,
@@ -19,8 +18,13 @@ const organziadorSchema = new mongoose.Schema({
   },
   senha: {
     type: String,
-  }
-
+  },
+  peladas: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Pelada',
+    },
+  ],
 });
 
-export default mongoose.model("Organizador", organziadorSchema);
+export default mongoose.model("Organizador", organizadorSchema);

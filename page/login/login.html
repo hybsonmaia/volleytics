@@ -6,7 +6,7 @@
     <title>Login - Volleytics</title>
     <link rel="stylesheet" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../../img/logo.jpg" type="image/x-icon">
+    <link rel="icon" href="/img/logo.jpg" type="image/x-icon">
 </head>
 <body>
     <div class="form-container">
@@ -17,7 +17,14 @@
         </div>
         <div class="form-group">
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" required>
+            <div class="password-container">
+                <input type="password" id="senha" required>
+                <span class="toggle-password" onclick="togglePassword()">
+                    <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#0072ff">
+                        <path d="M12 4.5C7.05 4.5 2.73 7.61 1 12c1.73 4.39 6.05 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 16.95 4.5 12 4.5zm0 13c-2.9 0-5.5-2.1-6.48-5 0.98-2.9 3.58-5 6.48-5s5.5 2.1 6.48 5c-0.98 2.9-3.58 5-6.48 5zM2 2l20 20"/>
+                    </svg>
+                </span>
+            </div>
         </div>
         <button onclick="fazerLogin()">Entrar</button>
         

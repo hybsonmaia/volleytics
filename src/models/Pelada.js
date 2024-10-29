@@ -5,10 +5,16 @@ const peladaSchema = new mongoose.Schema({
     type: Number,
     unique: true,
   },
-  organizadorId: {
+  organizador: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Organizador'
-  }
+    ref: 'Organizador',
+  },
+  atletas: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Atleta',
+    },
+  ],
 });
 
 export default mongoose.model("Pelada", peladaSchema);

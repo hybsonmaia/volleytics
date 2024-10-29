@@ -10,6 +10,8 @@ async function getNextSequence(name) {
   return counter.seq;
 }
 
+// ATLETA
+
 async function getAtletas(request, response) {
   try {
     const atletas = await Atleta.find();
@@ -55,5 +57,10 @@ async function deleteAtleta(request, response) {
     return response.status(500).json({ error: "Erro ao deletar atleta" });
   }
 }
+
+//ORGANIZADO
+
+
+//PELADA
 
 export { getAtletas, createAtleta, deleteAtleta };

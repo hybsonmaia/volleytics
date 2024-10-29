@@ -31,7 +31,7 @@ function cadastrarAtleta() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data && data._id) {
+        if (data && data.organizadorId) {
           exibirPopup();
           limparFormulario();
         } else {
