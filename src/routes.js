@@ -3,6 +3,7 @@ import {
   getAtletas,
   createAtleta,
   deleteAtleta,
+  deleteAllAtletas,
 } from "./controllers/AtletasController.js";
 
 import {
@@ -10,6 +11,7 @@ import {
   createOrganizador,
   deleteOrganizador,
   deleteAllOrganizadores,
+  login,
 } from "./controllers/OrganizadoresController.js";
 
 import {
@@ -23,11 +25,14 @@ const routes = Router();
 routes.get("/atletas", getAtletas);
 routes.post("/atletas", createAtleta);
 routes.delete("/atletas/:id", deleteAtleta);
+routes.delete("/atletas", deleteAllAtletas);
 
 routes.get("/organizadores", getOrganizadores);
 routes.post("/organizadores", createOrganizador);
 routes.delete("/organizadores/:id", deleteOrganizador);
 routes.delete("/organizadores", deleteAllOrganizadores);
+
+routes.post("/login", login);
 
 routes.get("/peladas", getPeladas);
 routes.post("/peladas", createPelada);

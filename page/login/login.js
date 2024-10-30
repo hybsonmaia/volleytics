@@ -1,4 +1,4 @@
-function fazerLogin() {
+async function fazerLogin() {
   const email = document.getElementById("email");
   const senha = document.getElementById("senha");
 
@@ -7,14 +7,41 @@ function fazerLogin() {
 
   if (!email.value) {
     email.classList.add("erro");
+    exibirPopup();
+    return;
   }
 
   if (!senha.value) {
     senha.classList.add("erro");
+    exibirPopup();
+    return;
   }
 
-  // exibirPopup();
+  try {
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.value, senha: senha.value }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const { peladaId } = data;
+      const { nomePelada } = data;
+
+      localStorage.setItem("peladaId", peladaId);
+      localStorage.setItem("nomePelada", nomePelada);
+
+      window.location.href = "../cadastroAtleta/cadastroAtleta.html";
+    } else {
+      alert("Credenciais inválidas. Tente novamente.");
+    }
+  } catch (error) {
+    console.error("Erro ao fazer login:", error);
+    alert("Erro ao fazer login. Tente novamente.");
+  }
 }
+
 
 function exibirPopup() {
   const popup = document.getElementById("popup");

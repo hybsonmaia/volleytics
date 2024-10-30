@@ -13,7 +13,10 @@ async function getNextSequence(name) {
 
 async function getPeladas(request, response) {
   try {
-    const peladas = await Pelada.find().populate("organizador", "organizadorId nome email");
+    const peladas = await Pelada.find()
+      .populate("organizador", "organizadorId nome email")
+      .populate("atletas", "nome posicao media");
+
     return response.json(peladas);
   } catch (error) {
     console.error("Erro ao buscar peladas:", error);
@@ -21,9 +24,12 @@ async function getPeladas(request, response) {
   }
 }
 
+
 async function createPelada(request, response) {
   try {
-    const { organizadorId, ...peladaData } = request.body;
+    const { organizadorId, nomePelada, ...peladaData } = request.body;
+
+    console.log("Nome da Pelada recebido:", nomePelada);
 
     const organizador = await Organizador.findOne({ organizadorId });
     if (!organizador) {
@@ -32,6 +38,9 @@ async function createPelada(request, response) {
 
     peladaData.peladaId = await getNextSequence("peladaId");
     peladaData.organizador = organizador._id;
+    peladaData.nomePelada = nomePelada;
+
+    console.log("Dados da Pelada antes de salvar:", peladaData);
 
     const novaPelada = await Pelada.create(peladaData);
 

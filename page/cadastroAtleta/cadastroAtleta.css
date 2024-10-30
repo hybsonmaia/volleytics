@@ -152,6 +152,10 @@ button:hover {
 
 }
 
+#nomePeladaTitulo {
+    font-weight: 400;
+}
+
 /* Responsividade para telas menores que 300px */
 @media (max-width: 300px) {
     .verAtletas {

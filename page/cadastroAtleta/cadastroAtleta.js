@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  exibirNomePelada();
+});
+
 function cadastrarAtleta() {
   const camposObrigatorios = document.querySelectorAll(
     "#nome, #posicao, #nivelPasse, #nivelAtaque, #nivelSaque, #nivelToque"
@@ -20,6 +24,7 @@ function cadastrarAtleta() {
       ataque: parseInt(document.getElementById("nivelAtaque").value),
       saque: parseInt(document.getElementById("nivelSaque").value),
       toque: parseInt(document.getElementById("nivelToque").value),
+      peladaId: getPeladaId(),
     };
 
     fetch("http://localhost:3000/atletas", {
@@ -31,7 +36,7 @@ function cadastrarAtleta() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data && data.organizadorId) {
+        if (data && data.atleta) { 
           exibirPopup();
           limparFormulario();
         } else {
@@ -43,6 +48,24 @@ function cadastrarAtleta() {
         alert("Erro ao conectar com o servidor.");
       });
   }
+}
+
+function getPeladaId() {
+  return localStorage.getItem("peladaId");
+}
+
+function exibirNomePelada() {
+  const nomePelada = getNomePelada();
+  const nomePeladaTitulo = document.getElementById("nomePeladaTitulo");
+  if (nomePelada) {
+    nomePeladaTitulo.textContent = `(${nomePelada})`;
+  } else {
+    nomePeladaTitulo.textContent = "Pelada não especificada";
+  }
+}
+
+function getNomePelada() {
+  return localStorage.getItem("nomePelada");
 }
 
 function exibirPopup() {
@@ -62,8 +85,4 @@ function limparFormulario() {
   document.getElementById("nivelAtaque").value = "";
   document.getElementById("nivelSaque").value = "";
   document.getElementById("nivelToque").value = "";
-}
-
-function verAtletas() {
-  alert("Função para ver atletas ainda não implementada!");
 }

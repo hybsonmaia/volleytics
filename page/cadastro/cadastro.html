@@ -21,8 +21,8 @@
             <input type="email" id="email" required>
         </div>
         <div class="form-group">
-            <label for="usuario">Usuário:</label>
-            <input type="text" id="usuario" required>
+            <label for="nomePelada">Nome Pelada:</label>
+            <input type="text" id="nomePelada" required>
         </div>
         <div class="form-group">
             <label for="senha">Senha:</label>
@@ -44,6 +44,14 @@
             <button onclick="fecharPopup()">Fechar</button>
         </div>
     </div>
+
+    <div id="popup-sucesso" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p>Cadastro realizado com sucesso!</p>
+            <button onclick="fecharPopupSucesso()">Fechar</button>
+        </div>
+    </div>
+    
 
     <script src="cadastro.js"></script>
 

@@ -5,6 +5,9 @@ const peladaSchema = new mongoose.Schema({
     type: Number,
     unique: true,
   },
+  nomePelada: {
+    type: String,
+  },
   organizador: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Organizador',

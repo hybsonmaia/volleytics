@@ -12,10 +12,6 @@ const organizadorSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  usuario: {
-    type: String,
-    unique: true,
-  },
   senha: {
     type: String,
   },
